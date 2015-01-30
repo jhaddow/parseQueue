@@ -13,13 +13,13 @@
 		<div class="row">
 			<div class="queue enter">
 				<div class = "question" ng-repeat = "q in queue | filter: {status: 'red'}">
-					<div ng-click="escalate()">{{q.question}}</div>
+					<div ng-click="escalate(q)">{{q.question}}</div>
 				</div>
 			</div>
 
 			<div class="queue helping">
 				<div class="question" ng-repeat = "q in queue | filter: {status: 'yellow'}">
-					<div ng-click="delFromQ()">{{q.question}}</div>
+					<div ng-click="delFromQ(q)">{{q.question}}</div>
 				</div>
 			</div>
 		</div>

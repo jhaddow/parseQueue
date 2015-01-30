@@ -13,17 +13,19 @@ app.service('parseService', function($http, $q){
 		var deferred = $q.defer();
 		$http.get(url + '?order=createdAt').
 			then(function(data){
+
 				deferred.resolve(data.data.results);
 			});
 		return deferred.promise;
-	}
+	};
 
 	this.escalate = function(questionObj){
 		questionObj.status = 'yellow';
 		return $http.put(url + '/' + questionObj.objectId, {status: questionObj.status});
-	}
+	};
 
 	this.delFromQ = function(questionObj){
 		return $http.delete(url + '/' + questionObj.objectId);
-	}
-})
+
+	};
+});
